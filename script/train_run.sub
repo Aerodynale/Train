@@ -2,7 +2,7 @@
 #$ -V
 
 #PBS -S /bin/bash
-#PBS -l nodes=1:ppn=16,mem=2g,walltime=2:00:00
+#PBS -l nodes=1:ppn=16,mem=5g,walltime=12:00:00
 #PBS -N freight_train
 
 
