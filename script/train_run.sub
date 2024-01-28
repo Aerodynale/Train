@@ -6,6 +6,6 @@
 #PBS -N freight_train
 
 
-cd /home/meccanica/abrunelli/Treno
+cd /home/meccanica/abrunelli/Train
 #sort ${PBS_NODEFILE} | uniq -c | awk '{ printf("%s\n", $2); }' > /home/meccanica/abrunelli/mpd.nodes
-time ./Allrun_cluster > /home/meccanica/abrunelli/Treno/output.txt
+time ./Allrun_cluster > /home/meccanica/abrunelli/Train/output.txt
