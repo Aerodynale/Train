@@ -52,14 +52,14 @@ geometry
         min  (0.35 -0.1 0);
         max  (2.5 0.1 0.25);
     }
-    
+    /*
      refinementBox4
     {
         type box;
-        min  (0.6 -0.09 0);
-        max  (1.61 0.09 0.175);
+        min  (0.6 -0.08 0);
+        max  (1.5 0.08 0.15);
     }
-    
+    */
    
 }
 
@@ -74,7 +74,7 @@ castellatedMeshControls
     // If local number of cells is >= maxLocalCells on any processor
     // switches from from refinement followed by balancing
     // (current method) to (weighted) balancing before refinement.
-    maxLocalCells 900000;
+    maxLocalCells 1000000;
 
     // Overall cell limit (approximately). Refinement will stop immediately
     // upon reaching this number so a refinement level might not complete.
@@ -179,19 +179,18 @@ castellatedMeshControls
             mode inside;
             levels ((1E15 4));
         }
-        refinementBox4
+        /* refinementBox4
         {
             mode inside;
             levels ((1E15 5));
         }
-        
-        /*
+        */
          train
         {
            mode distance;
         levels ((0.035 5));
    	    }
-        */
+
     }
 
 
