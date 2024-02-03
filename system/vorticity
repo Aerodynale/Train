@@ -5,27 +5,26 @@
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
-{
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      topoSetDict;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-actions
-(
-    // For easier post-processing, and data-conversion tests
-    {
-        name    inner;
-        type    cellZoneSet;
-        action  new;
-        source  boxToCell;
-        min     (0.5 -0.2 0);
-        max     ( 0 0.2 0.2);
-    }
-);
+vorticity1
+{
+    // Mandatory entries
+    type            vorticity;
+    libs            (fieldFunctionObjects);
+
+    // Optional (inherited) entries
+    field           U;
+    result          vorticityField;
+    region          region0;
+    enabled         true;
+    log             true;
+    timeStart       0;
+    timeEnd         1000;
+    executeControl  timeStep;
+    executeInterval 1000;
+    writeControl    timeStep;
+    writeInterval   1000;
+}
 
 
 // ************************************************************************* //

@@ -5,15 +5,14 @@
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-upperWall
-{
-    type slip;
-}
 
 frontAndBack
 {
-    type slip;
+        type            symmetryPlane;
 }
-
+upperWall
+{
+        type            symmetryPlane;
+}
 
 // ************************************************************************* //

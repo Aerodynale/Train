@@ -13,8 +13,9 @@ FoamFile
     object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#include       "include/angulationParameters"
+
 #include        "include/initialConditions"
+
 
 dimensions      [0 2 -2 0 0 0 0];
 
@@ -23,64 +24,22 @@ internalField   uniform $pressure;
 boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
-
-    inlet
-    {
-        type            zeroGradient;
-    }
-
+    #include "include/fixedInlet"
     outlet
     {
         type            fixedValue;
         value           $internalField;
     }
-
     lowerWall
     {
-        type            zeroGradient;
+       type            zeroGradient; 
     }
-    treno15
+    train
     {
         type            zeroGradient;
     }
-    pareti_galleria
-    {
-        type            zeroGradient;   
-    }
-   
-    #include "include/pareti_Slip" 
-    #include "include/frontBackUpperPatches" 
 
-     // In case the angluationFlag is set to TRUE, the following patches are redefined
-    #ifeq $angulationFlag true
-        #if #eval {$angulationAngle < 0}
-            backWall
-            {
-                type            zeroGradient;
-            }
-        #else
-            backWall
-            {
-                type            fixedValue;
-                value           $internalField;
-            }
-        #endif
-
-        #if #eval {$angulationAngle > 0}
-            frontWall
-            {
-                type            zeroGradient;
-            }
-        #else
-            frontWall
-            {
-                type            fixedValue;
-                value           $internalField;
-            }
-        #endif
-    #endif
-
-    
+    #include "include/frontBackUpperPatches"
 }
 
 
