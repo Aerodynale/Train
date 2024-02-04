@@ -37,27 +37,27 @@ geometry
     refinementBox
     {
         type box;
-        min  (0.5 -0.8 0);
-        max  (4.5 0.8 1);
+        min  (0.5 -0.6 0);
+        max  (4.2 0.6 0.8);
     }
     refinementBox2
     {
         type box;
-        min  (0.7 -0.6 0);
-        max  (4.2 0.6 0.7);
+        min  (0.8 -0.4 0);
+        max  (3.8 0.4 0.6);
     }
      refinementBox3
     {
         type box;
-        min  (0.8 -0.4 0);
-        max  (3.8 0.4 0.5);
+        min  (0.9 -0.25 0);
+        max  (3.5 0.25 0.5);
     }
     
      refinementBox4
     {
         type box;
-        min  (0.9 -0.2 0);
-        max  (3.5 0.2 0.3);
+        min  (1 -0.15 0);
+        max  (3.2 0.15 0.3);
     }
     
    

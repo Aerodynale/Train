@@ -22,15 +22,15 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         100;
+endTime         1000;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   50;
+writeInterval   100;
 
-purgeWrite      1;
+purgeWrite      2;
 
 writeFormat     binary;
 
@@ -50,11 +50,11 @@ functions
    // #include "streamLines"
     // #include "wallBoundedStreamLines"
     // #include "cuttingPlane"
-    #include "forceCoeffs"
+    //#include "forceCoeffs"
     //#include "ensightWrite"
     #include "forces"
     //#include "fieldAverage"
-    #include "yPlus"
+    //#include "yPlus"
     #include "vorticity"
 
 }
