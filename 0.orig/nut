@@ -24,9 +24,14 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    frontAndBack
+    front
     {
-        type            calculated;
+        type            symmetryPlane;
+        value           uniform 0;
+    }
+    back
+    {
+        type            symmetryPlane;
         value           uniform 0;
     }
    
@@ -50,10 +55,14 @@ boundaryField
 
     upperWall
     {
-        type            calculated;
+        type            symmetryPlane;
         value           uniform 0;
     }
-   #include "include/frontBackUpperPatches"
+    train
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
 }
 
 

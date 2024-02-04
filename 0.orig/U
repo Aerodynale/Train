@@ -32,17 +32,30 @@ boundaryField
         inletValue      uniform (0 0 0);
         value           $internalField;
     }
+    front
+    {
+        type            symmetryPlane;
+    }
+    back
+    {
+        type            symmetryPlane;
+    }
+    upperWall
+    {
+        type            symmetryPlane;
+    }
     lowerWall
     {
-        type    movingWall;
-        value uniform (20 0 0);
+        type            movingWallVelocity;
+        value           uniform (20 0 0);
     }
+
     train
     {
         type            noSlip;
     }
 
-    #include "include/frontBackUpperPatches"
+    //#include "include/frontBackUpperPatches"
 }
 
 

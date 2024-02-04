@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
- #include        "include/initialConditions"
+#include        "include/initialConditions"
 
 
 dimensions      [0 2 -2 0 0 0 0];
@@ -34,26 +34,33 @@ boundaryField
         inletValue      $internalField;
         value           $internalField;
     }
-
-     lowerWall
+    front
     {
-        type            kqRWallFunction;
-        value           uniform 0.24;
+       type            symmetryPlane;
     }
-     
+    back
+    {
+       type            symmetryPlane;
+    }
     upperWall
     {
-        type            symmetryPlane;
+         type            symmetryPlane;
     }
-    frontBackUpperPatches
+
+    lowerWall
     {
-        type            symmetryPlane;
+        type            kqRWallFunction;
+        value           $internalField;
     }
+
     train
     {
         type            kqRWallFunction;
         value           $internalField;
     }
+
+    //#include "include/frontBackUpperPatches"
 }
+
 
 // ************************************************************************* //

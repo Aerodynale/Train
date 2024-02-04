@@ -28,9 +28,9 @@ deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   20;
+writeInterval   50;
 
-purgeWrite      2;
+purgeWrite      1;
 
 writeFormat     binary;
 
@@ -55,7 +55,7 @@ functions
     #include "forces"
     //#include "fieldAverage"
     #include "yPlus"
-    //#include "vorticity"
+    #include "vorticity"
 
 }
 

@@ -39,17 +39,27 @@ edges
 
 boundary
 (
-    frontAndBack
+    front
     {
         type symmetryPlane;
         faces
-        (3 7 6 2)
-        (1 5 4 0)
-
+        (
+            (3 7 6 2)
+            
+        );
     }
+    back
+    {
+        type symmetryPlane;
+        faces
+        (
+             (1 5 4 0)
+        );
+    }
+
     inlet
     {
-        type patch;
+        type wall;
         faces
         (
             (0 4 7 3)
@@ -57,7 +67,7 @@ boundary
     }
     outlet
     {
-        type patch;
+        type wall;
         faces
         (
             (2 6 5 1)
@@ -65,16 +75,15 @@ boundary
     }
     lowerWall
     {
-        type movingWallVelocity;
+        type wall;
         faces
         (
             (0 3 2 1)
         );
-        value uniform (20 0 0);
     }
     upperWall
     {
-        type symmetryPlane;;
+        type symmetryPlane;
         faces
         (
             (4 5 6 7)

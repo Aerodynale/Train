@@ -27,6 +27,19 @@ boundaryField
     #includeEtc "caseDicts/setConstraintTypes"
 
     #include "include/fixedInlet"
+
+   upperWall
+    {
+        type            symmetryPlane;;
+    }
+    front
+    {
+        type            symmetryPlane;
+    }
+    back
+    {
+        type            symmetryPlane;
+    }
     outlet
     {
         type            inletOutlet;
@@ -46,7 +59,7 @@ boundaryField
         value           $internalField;
     }
 
-    #include "include/frontBackUpperPatches"
+    //#include "include/frontBackUpperPatches"
 }
 
 

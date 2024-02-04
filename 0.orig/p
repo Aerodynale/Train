@@ -24,22 +24,46 @@ internalField   uniform $pressure;
 boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
-    #include "include/fixedInlet"
+
+    inlet
+    {
+        type            zeroGradient;
+    }
+
     outlet
     {
         type            fixedValue;
         value           $internalField;
     }
+    front
+    {
+
+        type            symmetryPlane;
+        value           uniform 0;
+    }
+    back
+    {
+
+        type            symmetryPlane;
+        value           uniform 0;
+    }
+    upperWall
+    {
+        type            symmetryPlane;
+        value           uniform 0;
+    }
+
     lowerWall
     {
-       type            zeroGradient; 
+        type            zeroGradient;
     }
+
     train
     {
         type            zeroGradient;
     }
 
-    #include "include/frontBackUpperPatches"
+    //#include "include/frontBackUpperPatches"
 }
 
 
