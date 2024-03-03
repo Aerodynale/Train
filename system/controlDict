@@ -49,7 +49,7 @@ functions
 
    // #include "streamLines"
     // #include "wallBoundedStreamLines"
-    // #include "cuttingPlane"
+    #include "cuttingPlane"
     //#include "forceCoeffs"
     //#include "ensightWrite"
     #include "forces"
