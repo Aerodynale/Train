@@ -9,49 +9,23 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      p;
+    class       dictionary;
+    object      topoSetDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-//#include       "include/angulationParameters"
-#include        "include/initialConditions"
 
-
-dimensions      [0 2 -2 0 0 0 0];
-
-internalField   uniform $pressure;
-
-boundaryField
-{
-    #includeEtc "caseDicts/setConstraintTypes"
-
-    inlet
+actions
+(
+    // For easier post-processing, and data-conversion tests
     {
-        type            zeroGradient;
+        name    inner;
+        type    cellZoneSet;
+        action  new;
+        source  boxToCell;
+        min     (0.5 -0.2 0);
+        max     ( 0 0.2 0.2);
     }
-
-    outlet
-    {
-        type            fixedValue;
-        value           $internalField;
-    }
-    upperWall
-    {
-        type            symmetryPlane;
-        value           uniform 0;
-    }
-
-    lowerWall
-    {
-        type            zeroGradient;
-    }
-
-    train
-    {
-        type            zeroGradient;
-    }
-}
-    //#include "include/frontBackUpperPatches"
+);
 
 
 // ************************************************************************* //
